@@ -130,7 +130,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -144,3 +143,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 print(MEDIA_ROOT)
 
 MEDIA_URL = '/media/'
+
+# django.core.mail.backends.console.EmailBackend
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = os.environ.get('TeCHBLOG_EMAIL')
+EMAIL_HOST_PASSWORD = os.environ.get('TeCHBLOG_PASS')
+print(f"Email Name: {EMAIL_HOST_USER}\nEmail Pass: {EMAIL_HOST_PASSWORD}")

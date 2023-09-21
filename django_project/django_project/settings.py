@@ -140,30 +140,42 @@ LOGIN_REDIRECT_URL = 'techblog-home'
 LOGIN_URL = 'login'
 
 # The full path to a directory where we want django to store uploaded files
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 print(MEDIA_ROOT)
 
 MEDIA_URL = '/media/'
 
 # django.core.mail.backends.console.EmailBackend
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 EMAIL_HOST = 'smtp.gmail.com'
+
 EMAIL_PORT = 465
+
 EMAIL_USE_SSL = True
+
 EMAIL_HOST_USER = os.environ.get('TeCHBLOG_EMAIL')
+
 EMAIL_HOST_PASSWORD = os.environ.get('TeCHBLOG_PASS')
+
 print(f"Email Name: {EMAIL_HOST_USER}\nEmail Pass: {EMAIL_HOST_PASSWORD}")
 
+# AWS Storage Details
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 
 print(f"Access_ID: {AWS_ACCESS_KEY_ID}\nAccess_Secret_Key: {AWS_SECRET_ACCESS_KEY}\nBucket_name: {AWS_STORAGE_BUCKET_NAME}")
 
 AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
 
+AWS_DEFAULT_ACL = None
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
